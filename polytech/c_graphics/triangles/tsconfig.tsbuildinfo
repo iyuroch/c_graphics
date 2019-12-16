@@ -1,0 +1,62 @@
+{
+  "program": {
+    "fileInfos": {
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.d.ts": {
+        "version": "49ff9798f592c8b7e628fd881401e68810c1b3589ecd7a41b32b3c287374cde0",
+        "signature": "49ff9798f592c8b7e628fd881401e68810c1b3589ecd7a41b32b3c287374cde0"
+      },
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.es5.d.ts": {
+        "version": "fc43680ad3a1a4ec8c7b8d908af1ec9ddff87845346de5f02c735c9171fa98ea",
+        "signature": "fc43680ad3a1a4ec8c7b8d908af1ec9ddff87845346de5f02c735c9171fa98ea"
+      },
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.dom.d.ts": {
+        "version": "d93de5e8a7275cb9d47481410e13b3b1debb997e216490954b5d106e37e086de",
+        "signature": "d93de5e8a7275cb9d47481410e13b3b1debb997e216490954b5d106e37e086de"
+      },
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.webworker.importscripts.d.ts": {
+        "version": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b",
+        "signature": "fe4e59403e34c7ff747abe4ff6abbc7718229556d7c1a5b93473fb53156c913b"
+      },
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.scripthost.d.ts": {
+        "version": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9",
+        "signature": "b9faa17292f17d2ad75e34fac77dd63a6403af1dba02d39cd0cbb9ffdf3de8b9"
+      },
+      "./src/index.ts": {
+        "version": "1e9862f71026b4cd83d5a465fd9402fbec3a3bd4bbb355a4095a11cdd80b44f6",
+        "signature": "20d49369a8afefe876d24423cd7811804904285f1e415a5806819cbf5f3ce20d"
+      }
+    },
+    "options": {
+      "target": 1,
+      "module": 0,
+      "outDir": "./script",
+      "rootDir": "./src",
+      "composite": true,
+      "strict": true,
+      "esModuleInterop": true,
+      "forceConsistentCasingInFileNames": true,
+      "configFilePath": "./tsconfig.json"
+    },
+    "semanticDiagnosticsPerFile": [
+      [
+        "./src/index.ts",
+        [
+          {
+            "file": "./src/index.ts",
+            "start": 38,
+            "length": 5,
+            "messageText": "Cannot use imports, exports, or module augmentations when '--module' is 'none'.",
+            "category": 1,
+            "code": 1148
+          }
+        ]
+      ],
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.d.ts",
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.es5.d.ts",
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.dom.d.ts",
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.webworker.importscripts.d.ts",
+      "../../../../../../../usr/lib/node_modules/typescript/lib/lib.scripthost.d.ts"
+    ]
+  },
+  "version": "3.7.2"
+}
