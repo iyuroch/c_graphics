@@ -19,6 +19,7 @@ define(["require", "exports", "./elements/element_repr"], function (require, exp
             this.__canvas_draw_els.splice(el_idx, 1);
         }
         draw_els() {
+            this.clear();
             for (let element of this.__canvas_draw_els) {
                 for (const el of element.el_repr) {
                     if (el instanceof element_repr_1.ElAction) {
@@ -31,7 +32,10 @@ define(["require", "exports", "./elements/element_repr"], function (require, exp
             }
         }
         clear() {
+            this.canvas.save();
+            this.canvas.setTransform(1, 0, 0, 1, 0, 0);
             this.canvas.clearRect(0, 0, this.width, this.height);
+            this.canvas.restore();
         }
         apply_style(attr, value) {
             this.canvas[attr] = value;

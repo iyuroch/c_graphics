@@ -1,6 +1,6 @@
 ## Development
 ### live server - please refer to live-server npm module
-live-server
+cd build && live-server
 ### watch rebuild - install typescript
 tsc -w
 ### this is to check number of lines

@@ -5,71 +5,52 @@ import { Coordinates } from "./canvas/elements/coordinates"
 import { EquiFigure, Figure, EquiFigureCreator } from "./canvas/elements/triangle/equi_angle"
 import { Square } from "./canvas/elements/rectangle/square"
 import { ElAction } from "./canvas/elements/element_repr"
+import { MinkovskiCurve } from "./canvas/elements/fractals/minkovski_curve"
+import { MinkovskiSausage } from "./canvas/elements/fractals/minkovski_sausage"
+import { Parallelogram } from "./canvas/elements/parallelogram/parallelogram"
+
+import { lab_1, lab_2 } from "./functions"
 
 
-function drawCanvas(field_descr: any) {
-    let canvas = new Canvas("#mainCanvas", 400, 400, "white");
-    let coordinates = new Coordinates(
-        canvas.width / field_descr.single_segment, canvas.height / field_descr.single_segment
-    );
+let a_point = prompt("Set center of 1 point", "1 1");
+let a_center = new Point(Number(a_point!.split(" ")[0]), Number(a_point!.split(" ")[1]));
+let b_point = prompt("Set center of 2 point", "2 70");
+let b_center = new Point(Number(b_point!.split(" ")[0]), Number(b_point!.split(" ")[1]));
+let c_point = prompt("Set center of 3 point", "70 70");
+let c_center = new Point(Number(c_point!.split(" ")[0]), Number(c_point!.split(" ")[1]));
 
-    canvas.canvas.scale(field_descr.single_segment, field_descr.single_segment);
-    canvas.add_draw_el(coordinates);
+let fill_color = prompt("Please input fill color", "green");
 
-    for (const el of field_descr.triangles) {
-        let triangle = EquilateralTriangleCreator.generateTriangleDirection(
-            new Point(el.center[0], el.center[1]),
-            el.length,
-            el.direction
-        )
+let parallelogram = new Parallelogram(a_center, b_center, c_center);
+let canvas_1 = new Canvas("#mainCanvas1", 500, 500, "white");
+canvas_1.canvas.translate(canvas_1.width / 2, canvas_1.height / 2);
+canvas_1.add_draw_el(parallelogram);
+parallelogram.subscribe(canvas_1, "draw_els");
+parallelogram.fillcolor = fill_color!;
 
-        let figure: Figure;
-        switch(el.figure) { 
-            case "triangle": { 
-                figure = Figure.triangle;
-                break; 
-            }
-            case "rectangle": { 
-                figure = Figure.rectangle;
-                break; 
-            }
-            case "dot": { 
-                figure = Figure.dot;
-                break; 
-            } 
-            default: { 
-                figure = Figure.default; 
-                break; 
-            } 
-        } 
-        triangle = EquiFigureCreator.fromEquilateral(triangle, figure);
-        triangle.fill_style = el.fillcolor;
-        triangle.line_style = el.line_style;
-
-        // due to tech requirements we need to notify user
-        // that his elements are our of canvas
-        for (const el_repr of triangle.el_repr) {
-            if (el_repr instanceof ElAction) {
-                if (el_repr.name === "moveTo" ||
-                el_repr.name === "lineTo") {
-                        if (el_repr.args![0] > canvas.width / field_descr.single_segment ||
-                            el_repr.args![1] > canvas.height / field_descr.single_segment) {
-                            throw new Error(`Your element ${JSON.stringify(el)} is out of canvas`);
-                    }
-                }
-            }
-        }
-        canvas.add_draw_el(triangle);
-    }
-    canvas.draw_els();
+let ms = 200;
+function sleep(ms: number) {
+    return new Promise(resolve => setTimeout(resolve, ms));
 }
 
+async function draw_parallelogram() {
+    while (true) {
+        parallelogram.rotate(-2);
+        console.log(ms);
+        await sleep(ms);
+    }
+}
 
-let url = './field.json';
+draw_parallelogram();
 
-fetch(url)
-    .then(res => res.json())
-    .then((out) => {
-        drawCanvas(out);
-    })
-    .catch(err => { throw err });
+document.getElementById("increase")!.onclick = () => {
+    if (ms - 20 < 0) {
+        ms = 0
+    } else {
+        ms -= 20;
+    }
+}
+
+document.getElementById("decrease")!.onclick = () => {
+    ms += 20;
+}

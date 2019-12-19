@@ -1,22 +1,6 @@
 {
-    "single_segment": 3,
+    "single_segment": 1,
     "triangles": [
-        {
-            "center": [50, 50],
-            "direction": 90,
-            "length": 20,
-            "fillcolor": "green",
-            "line_style": "red",
-            "figure": "rectangle"
-        },
-        {
-            "center": [90, 90],
-            "direction": 70,
-            "length": 10,
-            "fillcolor": "red",
-            "line_style": "green",
-            "figure": "triangle"
-        },
         {
             "center": [70, 70],
             "direction": 119,
@@ -24,6 +8,22 @@
             "fillcolor": "black",
             "line_style": "green",
             "figure": "dot"
+        },
+        {
+            "center": [65, 80],
+            "direction": 70,
+            "length": 10,
+            "fillcolor": "red",
+            "line_style": "green",
+            "figure": "triangle"
+        },
+        {
+            "center": [50, 50],
+            "direction": 90,
+            "length": 20,
+            "fillcolor": "green",
+            "line_style": "red",
+            "figure": "rectangle"
         }
     ]
 }

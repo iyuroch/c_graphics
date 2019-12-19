@@ -4,10 +4,10 @@ import { ElAction, ElStyle } from "./elements/element_repr";
 
 export class Canvas {
     canvas: any;
-    __canvas_draw_els: CanvasElement[];
-    __canvas_dom_el: any;
-    __width!: number;
-    __height!: number;
+    private __canvas_draw_els: CanvasElement[];
+    private  __canvas_dom_el: any;
+    private __width!: number;
+    private __height!: number;
 
     constructor(selector: String, width=500, height=500, background="#EEEEEE") {
         this.__canvas_draw_els = [];
@@ -33,7 +33,8 @@ export class Canvas {
     }
 
     draw_els() {
-        // TODO: reimplement with events and delegates
+        this.clear();
+        
         for (let element of this.__canvas_draw_els) {
             for (const el of element.el_repr) {
                 if (el instanceof ElAction) {
@@ -46,7 +47,10 @@ export class Canvas {
     }
 
     clear() {
+        this.canvas.save();
+        this.canvas.setTransform(1, 0, 0, 1, 0, 0);
         this.canvas.clearRect(0, 0, this.width, this.height);
+        this.canvas.restore();
     }
 
     apply_style(attr: string, value: string) {

@@ -15,6 +15,12 @@ define(["require", "exports"], function (require, exports) {
         into_array() {
             return [this.x, this.y];
         }
+        add(other) {
+            return new Point(this.x + other.x, this.y + other.y);
+        }
+        substract(other) {
+            return new Point(this.x - other.x, this.y - other.y);
+        }
         rotate(degrees) {
             degrees = ((degrees) % 360) * (Math.PI / 180);
             let rot_x = this.x * Math.cos(degrees) - this.y * Math.sin(degrees);

@@ -1,7 +1,6 @@
 import { CanvasElement } from "../canvas_el"
 import { Point } from "../point"
 import { ElRepr, ElAction, ElStyle } from "../element_repr"
-// import { EquiFigure, Figure } from "./equi_angle"
 
 export class EquilateralTriangleCreator {
     static generateTriangleDirection(center: Point, length: number, angle_degrees: number) {

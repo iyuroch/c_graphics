@@ -19,6 +19,14 @@ export class Point {
         return [this.x, this.y];
     }
 
+    add(other: Point): Point {
+        return new Point(this.x + other.x, this.y + other.y);
+    }
+
+    substract(other: Point): Point {
+        return new Point(this.x - other.x, this.y - other.y);
+    }
+
     rotate(degrees: number): Point {
         // It assumes bases to be on 0, 0
         degrees = ((degrees) % 360) * (Math.PI / 180);
